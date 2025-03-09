@@ -1,0 +1,91 @@
+/* Main styling */
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card-header {
+    border-radius: 10px 10px 0 0 !important;
+  }
+  
+  /* Price display styling */
+  #current-price {
+    font-weight: bold;
+    color: #0d6efd;
+  }
+  
+  /* Risk cards styling */
+  .risk-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+  }
+  
+  .risk-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  .risk-low {
+    border-color: #198754;
+  }
+  
+  .risk-medium {
+    border-color: #ffc107;
+  }
+  
+  .risk-high {
+    border-color: #dc3545;
+  }
+  
+  /* Recommended option styling */
+  .recommended {
+    position: relative;
+    border-width: 3px;
+    z-index: 1;
+  }
+  
+  .recommended::after {
+    content: "Recommended";
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    background-color: #0d6efd;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.8em;
+    font-weight: bold;
+  }
+  
+  /* Analysis section styling */
+  .analysis-container {
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid #0d6efd;
+  }
+  
+  /* Transaction status styling */
+  #transaction-container {
+    transition: all 0.3s ease;
+  }
+  
+  .invest-btn {
+    transition: all 0.2s ease;
+  }
+  
+  .invest-btn:hover {
+    transform: scale(1.05);
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .col-md-4 {
+      margin-bottom: 20px;
+    }
+  }

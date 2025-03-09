@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sonic Token Investment</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container mt-5">
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <div class="card">
+          <div class="card-header bg-primary text-white">
+            <div class="d-flex justify-content-between align-items-center">
+              <h2 class="mb-0">Sonic Token Investment Portal</h2>
+              <div class="wallet-buttons">
+                <button id="connect-wallet" class="btn btn-light">
+                  <i class="bi bi-wallet2"></i> Connect Wallet
+                </button>
+                <button id="disconnect-wallet" class="btn btn-outline-danger d-none">
+                  <i class="bi bi-box-arrow-right"></i> Disconnect
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <!-- Wallet Status -->
+            <div id="wallet-status" class="mb-4">
+              <div class="alert alert-secondary">
+                Please connect your wallet to invest.
+              </div>
+            </div>
+            
+            <!-- Price Information -->
+            <div class="price-container mb-4">
+              <h3>Current Sonic Token Price</h3>
+              <div class="d-flex justify-content-between">
+                <h4 id="current-price">Loading...</h4>
+                <button id="refresh-btn" class="btn btn-sm btn-outline-primary">
+                  <i class="bi bi-arrow-clockwise"></i> Refresh
+                </button>
+              </div>
+            </div>
+
+            <!-- Analysis and Recommendation -->
+            <div class="analysis-container mb-4">
+              <h3>Investment Analysis</h3>
+              <div id="analysis-content">
+                <p class="text-center">
+                  <span class="spinner-border text-primary" role="status"></span><br>
+                  Analyzing market conditions...
+                </p>
+              </div>
+              <div id="moving-average" class="text-muted small mt-2"></div>
+            </div>
+
+            <!-- Investment Buttons -->
+            <div class="investment-options">
+              <h3>Choose Your Investment Option</h3>
+              <div class="row mt-3">
+                <div class="col-md-4 mb-3">
+                  <div class="card h-100 risk-card risk-low">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Low Risk</h5>
+                      <p class="card-text">Lower returns, but safer investment.</p>
+                      <h4>$10</h4>
+                      <button class="btn btn-success invest-btn w-100" data-amount="10" data-risk="low" disabled>
+                        Invest $10
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card h-100 risk-card risk-medium">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">Medium Risk</h5>
+                      <p class="card-text">Balanced risk and return potential.</p>
+                      <h4>$20</h4>
+                      <button class="btn btn-warning invest-btn w-100" data-amount="20" data-risk="medium" disabled>
+                        Invest $20
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                  <div class="card h-100 risk-card risk-high">
+                    <div class="card-body text-center">
+                      <h5 class="card-title">High Risk</h5>
+                      <p class="card-text">Higher potential returns, but riskier.</p>
+                      <h4>$30</h4>
+                      <button class="btn btn-danger invest-btn w-100" data-amount="30" data-risk="high" disabled>
+                        Invest $30
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Transaction Status -->
+            <div id="transaction-container" class="mt-4 d-none">
+              <div class="alert" role="alert" id="transaction-status">
+                <!-- Transaction messages will be displayed here -->
+              </div>
+            </div>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Recipient Wallet: 0x486BEa6B90243d2Ff3EE2723a47605C3361c3d95</small>
+            <br>
+            <small>Network: Sonic Testnet</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal for transaction processing -->
+  <div class="modal fade" id="txModal" tabindex="-1" aria-labelledby="txModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="txModalLabel">Processing Transaction</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+          <div class="spinner-border text-primary mb-3" role="status"></div>
+          <p id="modal-message">Processing your investment. Please wait...</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.1/web3.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
